@@ -1,0 +1,62 @@
+host: "localhost"
+port: 2000
+vehicle_type: "vehicle.audi.etron"
+vehicle_id: "hero"
+tick_rate: 0.05
+
+spawn:
+  index: 0
+  fallback: true
+
+sensors:
+  rgb:
+    type: "sensor.camera.rgb"
+    id: "rgb"
+    spawn_point:
+      x: -4.5
+      "y": 0.0
+      z: 2.5
+      roll: 0.0
+      pitch: 20.0
+      yaw: 0.0
+    attributes:
+      image_size_x: 600
+      image_size_y: 400
+      fov: 90.0
+  lidar:
+    type: "sensor.lidar.ray_cast"
+    id: "lidar"
+    spawn_point:
+      x: 0.0
+      "y": 0.0
+      z: 2.4
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0
+    attributes:
+      range: 85
+      channels: 64
+      points_per_second: 600000
+      rotation_frequency: 20
+      upper_fov: 10
+      lower_fov: -30
+  gnss:
+    type: "sensor.other.gnss"
+    id: "gnss"
+    spawn_point:
+      x: 1.0
+      "y": 0.0
+      z: 2.0
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0
+  imu:
+    type: "sensor.other.imu"
+    id: "imu"
+    spawn_point:
+      x: 2.0
+      "y": 0.0
+      z: 2.0
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0
