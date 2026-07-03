@@ -16,7 +16,8 @@ What it really means though is to implement NDT scan matching ([Biber & Strasser
 - [x] `brazel_utils` initial setup and basic messages
 - [x] Verify CARLA 0.9.16 and native ROS2 bridge working on current hardware/software
 - [x] `brazel_bringup` initial setup for vehicle spawning, sensors, etc.
-- [ ] rviz2 config (sensors + vehicle transform)
+- [x] rviz2 config (sensors + vehicle transform)
+- [x] Vehicle and sensor suite final configuration
 - [ ] Manual keyboard control
 - [ ] Baseline performance numbers measurement and definition
 
@@ -41,10 +42,12 @@ GPU is also AMD, so no CUDA. This is gonna bite me when I go further on but this
 
 ## Roadmap
 
-1. **Phase 0 - Skeleton**. Just basically getting CARLA working on the system, solving driver issues, getting the sensor flowing data through the stack, manual control of the vehicle
-2. **Phase 1 - Voxel Localization**. NDT scan matching on voxel maps, fused with IMU. There's a LOT of details under here that hasn't been fleshed out yet. But we'll get there.
-
-After that is when I can continue on with more stuff, like occupancy-based planning with MPPI, BEV perception, sim-to-real evaluation, mapless perception, etc. But that's further out.
+1. **Phase 0 - Skeleton**. Getting CARLA running, sorting out driver issues, getting sensors flowing data through the stack, manual control of the vehicle. Just groundwork.
+2. **Phase 1 - Voxel Localization**. NDT scan matching on pre-built voxel maps, fused with IMU via EKF. Hardening the scan matching, state estimation, and sensor fusion fundamentals. There's a LOT of details under here that hasn't been fleshed out yet. But we'll get there.
+3. **Phase 2 - Occupancy Planning + MPPI**. Once the car knows where it is, figuring out where to go. Occupancy grid generation and MPPI for local trajectory planning.
+4. **Phase 3 - BEV Perception**. Bird's-eye-view perception. Surround cameras fused into BEV space for detection and scene understanding.
+5. **Phase 4 - Sim-to-Real**. Seeing how well things hold up outside of CARLA. Probably where the AMD GPU thing really starts to bite.
+6. **Phase 5 - Frontier Exploration**. Mapless perception, end-to-end approaches, whatever seems interesting by then.
 
 ---
 
@@ -61,4 +64,21 @@ source install/setup.bash
 
 # launch the stack (currently just spawns an auto-routing vehicle)
 ros2 launch brazel_bringup hero_spawner.launch.py
+```
+
+---
+
+## Architecture
+
+Right now the stack is pretty basic:
+
+- **`brazel_utils`** — Custom message definitions and shared types.
+- **`brazel_bringup`** — The entry point. Launch files, vehicle spawn config, sensor suite definitions, rviz2 config.
+
+### RViz2 Config
+
+After getting CARLA running and car has spawned, run this to get a RViz2 launched with my predefined config.
+
+```
+rviz2 -d src/brazel_bringup/config/brazel.rviz
 ```

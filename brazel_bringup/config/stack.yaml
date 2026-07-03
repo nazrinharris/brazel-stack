@@ -13,6 +13,20 @@ sensors:
     type: "sensor.camera.rgb"
     id: "rgb"
     spawn_point:
+      x: 2.2
+      "y": 0.0
+      z: 1.35
+      roll: 0.0
+      pitch: 0.0
+      yaw: 0.0
+    attributes:
+      image_size_x: 1280
+      image_size_y: 720
+      fov: 100.0
+  rgb_rear:
+    type: "sensor.camera.rgb"
+    id: "rgb_rear"
+    spawn_point:
       x: -4.5
       "y": 0.0
       z: 2.5
@@ -29,7 +43,7 @@ sensors:
     spawn_point:
       x: 0.0
       "y": 0.0
-      z: 2.4
+      z: 1.70
       roll: 0.0
       pitch: 0.0
       yaw: 0.0
@@ -44,9 +58,9 @@ sensors:
     type: "sensor.other.gnss"
     id: "gnss"
     spawn_point:
-      x: 1.0
+      x: -1.5
       "y": 0.0
-      z: 2.0
+      z: 1.60
       roll: 0.0
       pitch: 0.0
       yaw: 0.0
@@ -54,9 +68,9 @@ sensors:
     type: "sensor.other.imu"
     id: "imu"
     spawn_point:
-      x: 2.0
+      x: -1.5
       "y": 0.0
-      z: 2.0
+      z: 0.45
       roll: 0.0
       pitch: 0.0
       yaw: 0.0
