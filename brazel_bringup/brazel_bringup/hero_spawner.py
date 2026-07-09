@@ -20,7 +20,7 @@ class HeroSpawner(Node):
         config_path = os.path.join(
             get_package_share_directory("brazel_bringup"),
             "config",
-            "stack.yaml",
+            "vehicle_v1.yaml",
         )
         with open(config_path, "r") as f:
             self._config = yaml.safe_load(f)

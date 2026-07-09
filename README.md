@@ -25,7 +25,7 @@ What it really means though is to implement NDT scan matching ([Biber & Strasser
 
 ## Hardware and Software
 
-|     |     |
+|Spec|Detail     |
 | --- | --- |
 | CPU | AMD Ryzen 5 9600X |
 | GPU | AMD Radeon RX 9070XT (16GB) - (Mesa 25.0.7 / RADV Vulkan) |
